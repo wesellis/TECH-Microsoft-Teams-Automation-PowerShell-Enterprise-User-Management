@@ -1,3 +1,4 @@
+
 # Microsoft Teams Automation Bot
 
 This repository contains scripts and configurations for automating tasks in Microsoft Teams using PowerShell and the Microsoft Graph API.
@@ -20,20 +21,20 @@ The Microsoft Teams Automation Bot project aims to streamline and automate vario
 
 To get started, clone the repository and install the required dependencies.
 
-\\\ash
+\```bash
 git clone https://github.com/wesellis/Microsoft-Teams-Automation-Bot.git
 cd Microsoft-Teams-Automation-Bot
-\\\
+\```
 
 ## Usage
 
 ### Sample Script: Send a Message to a Teams Channel
 
-To send a message to a Microsoft Teams channel, use the \send-teams-message.ps1\ script.
+To send a message to a Microsoft Teams channel, use the `send-teams-message.ps1` script.
 
-\\\powershell
+\```powershell
 ./scripts/send-teams-message.ps1 -tenantId "<Tenant-ID>" -clientId "<Client-ID>" -clientSecret "<Client-Secret>" -channelId "<Channel-ID>" -message "Hello, Teams!"
-\\\
+\```
 
 ### Other Scripts
 
@@ -42,6 +43,11 @@ To send a message to a Microsoft Teams channel, use the \send-teams-message.ps1\
 - **List-TeamsChannels.ps1**: Script to list all channels in a Microsoft Teams team.
 - **Create-TeamsChannel.ps1**: Script to create a new channel in a Microsoft Teams team.
 - **Delete-TeamsChannel.ps1**: Script to delete a channel in a Microsoft Teams team.
+- **Update-TeamsChannel.ps1**: Script to update a channel in a Microsoft Teams team.
+- **List-TeamsMembers.ps1**: Script to list all members in a Microsoft Teams team.
+- **Create-TeamsMeeting.ps1**: Script to create a new meeting in a Microsoft Teams team.
+- **Delete-TeamsMeeting.ps1**: Script to delete a meeting in a Microsoft Teams team.
+- **List-TeamsMeetings.ps1**: Script to list all meetings in a Microsoft Teams team.
 
 ## Contributing
 
