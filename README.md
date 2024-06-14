@@ -7,6 +7,7 @@ This repository contains scripts and configurations for automating tasks in Micr
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Sample Script: Send a Message to a Teams Channel](#sample-script-send-a-message-to-a-teams-channel)
 - [Scripts](#scripts)
 - [Contributing](#contributing)
 - [License](#license)
