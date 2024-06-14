@@ -35,9 +35,13 @@ To send a message to a Microsoft Teams channel, use the \send-teams-message.ps1\
 ./scripts/send-teams-message.ps1 -tenantId "<Tenant-ID>" -clientId "<Client-ID>" -clientSecret "<Client-Secret>" -channelId "<Channel-ID>" -message "Hello, Teams!"
 \\\
 
-## Scripts
+### Other Scripts
 
-- **send-teams-message.ps1**: Script to send a message to a Microsoft Teams channel.
+- **Add-TeamsUser.ps1**: Script to add a user to a Microsoft Teams team.
+- **Remove-TeamsUser.ps1**: Script to remove a user from a Microsoft Teams team.
+- **List-TeamsChannels.ps1**: Script to list all channels in a Microsoft Teams team.
+- **Create-TeamsChannel.ps1**: Script to create a new channel in a Microsoft Teams team.
+- **Delete-TeamsChannel.ps1**: Script to delete a channel in a Microsoft Teams team.
 
 ## Contributing
 
