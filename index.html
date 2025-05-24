@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Teams Automation Bot - PowerShell Teams Management</title>
+    <meta name="description" content="PowerShell scripts for automating Microsoft Teams tasks using the Microsoft Graph API">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #f5f5f5; 
+            color: #333; 
+            line-height: 1.6; 
+        }
+        .header { 
+            background: linear-gradient(135deg, #6264a7 0%, #464775 100%); 
+            color: white; 
+            padding: 4rem 0; 
+            text-align: center; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        .header h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 300; }
+        .header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .main-content { padding: 4rem 0; }
+        .section { background: white; margin: 2rem 0; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .section h2 { color: #6264a7; margin-bottom: 1.5rem; font-size: 2rem; }
+        .section h3 { color: #555; margin: 1.5rem 0 1rem; font-size: 1.3rem; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .feature-card { 
+            background: #f8f9fa; 
+            padding: 1.5rem; 
+            border-radius: 6px; 
+            border-left: 4px solid #6264a7; 
+        }
+        .feature-card h4 { color: #6264a7; margin-bottom: 0.5rem; }
+        .code-block { 
+            background: #1e1e1e; 
+            color: #d4d4d4; 
+            padding: 1.5rem; 
+            border-radius: 6px; 
+            overflow-x: auto; 
+            margin: 1rem 0; 
+            font-family: 'Consolas', 'Monaco', monospace; 
+        }
+        .code-block pre { margin: 0; }
+        .download-section { text-align: center; background: #f8f9fa; padding: 2rem; border-radius: 8px; }
+        .download-btn { 
+            display: inline-block; 
+            background: #6264a7; 
+            color: white; 
+            padding: 1rem 2rem; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            margin: 0.5rem; 
+            transition: background 0.3s; 
+        }
+        .download-btn:hover { background: #524d94; }
+        .footer { 
+            background: #333; 
+            color: white; 
+            text-align: center; 
+            padding: 2rem 0; 
+            margin-top: 4rem; 
+        }
+        .footer a { color: #6264a7; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .container { padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Microsoft Teams Automation Bot</h1>
+            <p>PowerShell scripts for automating Microsoft Teams tasks using the Microsoft Graph API</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            
+            <!-- Overview Section -->
+            <div class="section">
+                <h2>Overview</h2>
+                <p>The Microsoft Teams Automation Bot project streamlines and automates various tasks within Microsoft Teams using PowerShell and the Microsoft Graph API. These scripts enable efficient management and operation of Teams functionalities for enterprise environments.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Message Management</h4>
+                        <p>Send automated messages to Teams channels with customizable content and formatting.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>User Management</h4>
+                        <p>Add and remove users from Teams with proper permission handling and validation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Channel Operations</h4>
+                        <p>Create, update, delete, and list channels with comprehensive management capabilities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Meeting Automation</h4>
+                        <p>Schedule, manage, and track Teams meetings programmatically.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="section">
+                <h2>Quick Start</h2>
+                
+                <h3>Prerequisites</h3>
+                <ul style="margin-left: 2rem;">
+                    <li>PowerShell 5.1 or later</li>
+                    <li>Microsoft Graph API access</li>
+                    <li>Azure AD app registration with Teams permissions</li>
+                    <li>Teams administrator permissions</li>
+                </ul>
+
+                <h3>Installation</h3>
+                <div class="code-block">
+                    <pre>git clone https://github.com/wesellis/Microsoft-Teams-Automation-Bot.git
+cd Microsoft-Teams-Automation-Bot</pre>
+                </div>
+
+                <h3>Example Usage</h3>
+                <div class="code-block">
+                    <pre># Send message to Teams channel
+./scripts/send-teams-message.ps1 -tenantId "your-tenant-id" `
+    -clientId "your-client-id" `
+    -clientSecret "your-client-secret" `
+    -channelId "your-channel-id" `
+    -message "Hello, Teams!"
+
+# Add user to Teams
+./scripts/Add-TeamsUser.ps1 -teamId "team-id" -userId "user@domain.com"
+
+# List team members
+./scripts/List-TeamsMembers.ps1 -teamId "team-id"</pre>
+                </div>
+            </div>
+
+            <!-- Available Scripts -->
+            <div class="section">
+                <h2>Available Scripts</h2>
+                
+                <h3>Core Scripts</h3>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li><strong>send-teams-message.ps1</strong> - Send messages to Teams channels</li>
+                    <li><strong>Add-TeamsUser.ps1</strong> - Add users to Teams</li>
+                    <li><strong>Remove-TeamsUser.ps1</strong> - Remove users from Teams</li>
+                    <li><strong>List-TeamsChannels.ps1</strong> - List all channels in a team</li>
+                    <li><strong>Create-TeamsChannel.ps1</strong> - Create new channels</li>
+                    <li><strong>Delete-TeamsChannel.ps1</strong> - Delete channels</li>
+                    <li><strong>Update-TeamsChannel.ps1</strong> - Update channel properties</li>
+                    <li><strong>List-TeamsMembers.ps1</strong> - List team members</li>
+                    <li><strong>Create-TeamsMeeting.ps1</strong> - Create new meetings</li>
+                    <li><strong>Delete-TeamsMeeting.ps1</strong> - Delete meetings</li>
+                    <li><strong>List-TeamsMeetings.ps1</strong> - List team meetings</li>
+                </ul>
+            </div>
+
+            <!-- Features -->
+            <div class="section">
+                <h2>Key Features</h2>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Graph API Integration</strong> - Direct integration with Microsoft Graph API</li>
+                    <li><strong>Authentication Support</strong> - Multiple authentication methods supported</li>
+                    <li><strong>Error Handling</strong> - Comprehensive error handling and logging</li>
+                    <li><strong>Batch Operations</strong> - Support for bulk operations</li>
+                    <li><strong>Enterprise Ready</strong> - Designed for enterprise environments</li>
+                    <li><strong>Extensible</strong> - Easy to extend with additional functionality</li>
+                </ul>
+            </div>
+
+            <!-- Download Section -->
+            <div class="download-section">
+                <h2>Get Started</h2>
+                <p>Download the Microsoft Teams Automation Bot and start automating your Teams management tasks.</p>
+                <a href="https://github.com/wesellis/Microsoft-Teams-Automation-Bot" class="download-btn">View on GitHub</a>
+                <a href="https://github.com/wesellis/Microsoft-Teams-Automation-Bot/archive/refs/heads/main.zip" class="download-btn">Download ZIP</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p><strong>Microsoft Teams Automation Bot</strong> by <a href="https://wesellis.com">Wesley Ellis</a></p>
+            <p>Licensed under MIT License | <a href="mailto:wes@wesellis.com">wes@wesellis.com</a></p>
+            <p style="margin-top: 1rem; opacity: 0.8;">Professional Teams automation for enterprise environments</p>
+        </div>
+    </div>
+
+</body>
+</html>
