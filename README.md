@@ -1,4 +1,3 @@
-
 # Microsoft Teams Automation Bot
 
 This repository contains scripts and configurations for automating tasks in Microsoft Teams using PowerShell and the Microsoft Graph API.
@@ -21,10 +20,10 @@ The Microsoft Teams Automation Bot project aims to streamline and automate vario
 
 To get started, clone the repository and install the required dependencies.
 
-\```bash
+```bash
 git clone https://github.com/wesellis/Microsoft-Teams-Automation-Bot.git
 cd Microsoft-Teams-Automation-Bot
-\```
+```
 
 ## Usage
 
@@ -32,9 +31,9 @@ cd Microsoft-Teams-Automation-Bot
 
 To send a message to a Microsoft Teams channel, use the `send-teams-message.ps1` script.
 
-\```powershell
+```powershell
 ./scripts/send-teams-message.ps1 -tenantId "<Tenant-ID>" -clientId "<Client-ID>" -clientSecret "<Client-Secret>" -channelId "<Channel-ID>" -message "Hello, Teams!"
-\```
+```
 
 ### Other Scripts
 
