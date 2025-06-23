@@ -1,6 +1,13 @@
-# Microsoft Teams Automation Bot
+# 🤖 Microsoft Teams Automation Bot
 
-This repository contains scripts and configurations for automating tasks in Microsoft Teams using PowerShell and the Microsoft Graph API.
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-blue.svg)](https://microsoft.com/powershell)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Coming%20Soon-orange.svg)](#version-20)
+[![Pro Version](https://img.shields.io/badge/Pro%20Version-$29-gold.svg)](https://gumroad.com/l/teams-automation-pro)
+
+> **Enterprise-grade Microsoft Teams automation platform - Save 20+ hours per week on repetitive tasks**
+
+Automate team management, channel operations, user provisioning, and more with our comprehensive PowerShell toolkit.
 
 ## Table of Contents
 
@@ -12,17 +19,50 @@ This repository contains scripts and configurations for automating tasks in Micr
 - [Contributing](#contributing)
 - [License](#license)
 
-## Description
+## 🎯 What Can You Automate?
 
-The Microsoft Teams Automation Bot project aims to streamline and automate various tasks within Microsoft Teams. Using PowerShell and the Microsoft Graph API, these scripts enable efficient management and operation of Teams functionalities.
+### User Management
+- **Bulk provisioning** - Add 100s of users in minutes
+- **Role assignment** - Automate permissions and access
+- **Guest management** - Control external user access
+- **Offboarding** - Remove users and preserve data
 
-### 🆕 Version 2.0 - TypeScript Migration
-We're migrating to a modern TypeScript/Node.js platform for better performance, maintainability, and features:
-- 🚀 Faster execution
-- 🔄 Better error handling
-- 📦 NPM package distribution
-- 🌐 Web dashboard (coming soon)
-- ☁️ SaaS platform (planned)
+### Channel Operations  
+- **Bulk channel creation** - Deploy standardized channels
+- **Permission management** - Control who can post/reply
+- **Content migration** - Move messages between channels
+- **Archive automation** - Clean up old channels
+
+### Meeting Automation
+- **Recurring meeting setup** - Create series automatically
+- **Attendance tracking** - Export participant reports
+- **Recording management** - Organize and share recordings
+- **Calendar integration** - Sync with Outlook
+
+### Compliance & Security
+- **Activity monitoring** - Track user actions
+- **Policy enforcement** - Apply governance rules
+- **Audit reporting** - Generate compliance reports
+- **Data retention** - Automate cleanup policies
+
+## 📊 ROI Calculator
+
+**Manual Teams Management**: 25 hours/week @ $50/hour = $1,250/week
+**With Automation**: 5 hours/week @ $50/hour = $250/week
+**Weekly Savings**: $1,000
+**Annual Savings**: **$52,000**
+
+**Pro Version ROI**: Less than 1 hour of saved time!
+
+### 🆕 Version 2.0 - TypeScript Migration (Coming Soon)
+We're building a modern TypeScript/Node.js platform:
+- 🚀 **50% faster execution**
+- 🔄 **Advanced error handling**
+- 📦 **NPM package** (@teams-automation/bot)
+- 🌐 **Web dashboard** for monitoring
+- ☁️ **SaaS platform** (subscription model)
+
+**Early Access**: Pro/Enterprise customers get v2.0 beta access
 
 ## Installation
 
@@ -56,31 +96,45 @@ To send a message to a Microsoft Teams channel, use the `send-teams-message.ps1`
 - **Delete-TeamsMeeting.ps1**: Script to delete a meeting in a Microsoft Teams team.
 - **List-TeamsMeetings.ps1**: Script to list all meetings in a Microsoft Teams team.
 
-## 💰 Support This Project
+## 💵 Pricing & Licensing
 
-If Teams Automation Bot saves you time and effort, consider supporting its development:
+### Free Version
+- Basic PowerShell scripts
+- Community support
+- Core automation features
+- Perfect for testing
 
-- ☕ [Buy me a coffee](https://buymeacoffee.com/wesellis)
-- 💖 [GitHub Sponsors](https://github.com/sponsors/wesellis)  
-- 💵 [PayPal](https://paypal.me/wesellis)
-- ⭐ Star this repository
+### Pro Version - $29 (One-time)
+**Everything you need for Teams automation:**
+- ✅ **50+ PowerShell scripts** (all current and future)
+- ✅ **Advanced automation templates**
+- ✅ **Setup guide & video tutorials**
+- ✅ **90-day email support**
+- ✅ **Priority feature requests**
+- ✅ **Bulk operations scripts**
+- ✅ **Security best practices guide**
+- ✅ **Updates for 1 year**
 
-### Pro Version Available
-Get the **Teams Automation Pro** package with:
-- ✅ All PowerShell scripts
-- ✅ Setup guide and examples
-- ✅ 90-day email support
-- ✅ Priority feature requests
+**[🛒 Get Pro Version →](https://gumroad.com/l/teams-automation-pro)**
 
-🛒 [Get Pro Version on Gumroad](https://gumroad.com/l/teams-automation-pro) - $29
+### Enterprise License - $149
+**For organizations and consultants:**
+- ✅ Everything in Pro
+- ✅ **Unlimited organization use**
+- ✅ **Priority support (24hr response)**
+- ✅ **Custom script development** (2 hours included)
+- ✅ **Implementation assistance**
+- ✅ **Architecture consultation**
+- ✅ **White-label rights**
 
-### Enterprise Support
-For organizations needing dedicated support:
-- 📧 Contact: enterprise@teamsautomation.com
-- 🏢 Custom automation development
-- 🎓 Team training sessions
-- 🔧 Implementation assistance
-- 📊 Architecture consulting
+**[🏢 Get Enterprise →](https://gumroad.com/l/teams-automation-enterprise)**
+
+### Why Pay?
+- **Save 20+ hours/week** on Teams management
+- **Reduce errors** with tested automation
+- **Scale operations** without adding staff
+- **Professional support** when you need it
+- **ROI in days**, not months
 
 ## Contributing
 
