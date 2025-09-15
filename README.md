@@ -1,145 +1,240 @@
-# 🤖 Microsoft Teams Automation Bot
+# 👥 Microsoft Teams Automation PowerShell Toolkit
+### Enterprise User Management and Team Provisioning
 
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![PowerShell](https://img.shields.io/badge/PowerShell-5.1+-blue.svg)](https://microsoft.com/powershell)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Coming%20Soon-orange.svg)](#version-20)
-[![Pro Version](https://img.shields.io/badge/Pro%20Version-$29-gold.svg)](https://gumroad.com/l/teams-automation-pro)
+[![PowerShell](https://img.shields.io/badge/PowerShell-7.0+-5391FE?style=for-the-badge&logo=powershell)](https://docs.microsoft.com/powershell/)
+[![Teams](https://img.shields.io/badge/Teams-2.0+-6264A7?style=for-the-badge&logo=microsoft-teams)](https://www.microsoft.com/teams)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-> **Enterprise-grade Microsoft Teams automation platform - Save 20+ hours per week on repetitive tasks**
+## 🎯 Overview
 
-Automate team management, channel operations, user provisioning, and more with our comprehensive PowerShell toolkit.
+PowerShell scripts for automating Microsoft Teams administration tasks. Handle user provisioning, team creation, policy management, and governance at scale. Built for IT admins managing enterprise Teams environments.
 
-## Table of Contents
+### 📊 Core Functions
 
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Sample Script: Send a Message to a Teams Channel](#sample-script-send-a-message-to-a-teams-channel)
-- [Scripts](#scripts)
-- [Contributing](#contributing)
-- [License](#license)
+- **Bulk Team Creation** from templates or CSV
+- **User Provisioning** with automatic policy assignment
+- **Channel Management** across multiple teams
+- **Guest Access Control** and external sharing
+- **Compliance Reporting** for governance
+- **Automated Cleanup** of inactive teams
 
-## 🎯 What Can You Automate?
+## 💡 Key Scripts
+
+### Team Management
+```powershell
+# Create teams from CSV
+Import-Csv teams.csv | ForEach-Object {
+    New-Team -DisplayName $_.TeamName `
+             -Description $_.Description `
+             -Visibility $_.Type `
+             -Template $_.Template
+}
+
+# Archive old teams
+Get-Team | Where {$_.LastActivity -lt (Get-Date).AddDays(-180)} |
+    Set-TeamArchivedState -Archived $true
+
+# Clone team structure
+Copy-TeamStructure -SourceTeam "Template Team" `
+                   -NewTeamName "Q2 Project Team"
+```
 
 ### User Management
-- **Bulk provisioning** - Add 100s of users in minutes
-- **Role assignment** - Automate permissions and access
-- **Guest management** - Control external user access
-- **Offboarding** - Remove users and preserve data
+```powershell
+# Add users to multiple teams
+$users = Get-Content users.txt
+$teams = "Sales", "Marketing", "Support"
+Add-UsersToTeams -Users $users -Teams $teams
 
-### Channel Operations  
-- **Bulk channel creation** - Deploy standardized channels
-- **Permission management** - Control who can post/reply
-- **Content migration** - Move messages between channels
-- **Archive automation** - Clean up old channels
+# Set policies for department
+Get-CsOnlineUser -Filter "Department eq 'Engineering'" |
+    Grant-CsTeamsMessagingPolicy -PolicyName "EngineeringPolicy"
 
-### Meeting Automation
-- **Recurring meeting setup** - Create series automatically
-- **Attendance tracking** - Export participant reports
-- **Recording management** - Organize and share recordings
-- **Calendar integration** - Sync with Outlook
-
-### Compliance & Security
-- **Activity monitoring** - Track user actions
-- **Policy enforcement** - Apply governance rules
-- **Audit reporting** - Generate compliance reports
-- **Data retention** - Automate cleanup policies
-
-## 📊 ROI Calculator
-
-**Manual Teams Management**: 25 hours/week @ $50/hour = $1,250/week
-**With Automation**: 5 hours/week @ $50/hour = $250/week
-**Weekly Savings**: $1,000
-**Annual Savings**: **$52,000**
-
-**Pro Version ROI**: Less than 1 hour of saved time!
-
-### 🆕 Version 2.0 - TypeScript Migration (Coming Soon)
-We're building a modern TypeScript/Node.js platform:
-- 🚀 **50% faster execution**
-- 🔄 **Advanced error handling**
-- 📦 **NPM package** (@teams-automation/bot)
-- 🌐 **Web dashboard** for monitoring
-- ☁️ **SaaS platform** (subscription model)
-
-**Early Access**: Pro/Enterprise customers get v2.0 beta access
-
-## Installation
-
-To get started, clone the repository and install the required dependencies.
-
-```bash
-git clone https://github.com/wesellis/Microsoft-Teams-Automation-Bot.git
-cd Microsoft-Teams-Automation-Bot
+# Remove external users
+Get-TeamUser -GroupId $teamId |
+    Where {$_.User -like "*#EXT#*"} |
+    Remove-TeamUser
 ```
 
-## Usage
+### Channel Operations
+```powershell
+# Create standard channels
+$channels = @("General", "Planning", "Development", "Testing")
+$channels | ForEach {
+    New-TeamChannel -GroupId $teamId -DisplayName $_
+}
 
-### Sample Script: Send a Message to a Teams Channel
+# Set channel permissions
+Set-TeamChannelPermissions -Channel "Confidential" `
+                          -AllowNewPosts "Owners"
+```
 
-To send a message to a Microsoft Teams channel, use the `send-teams-message.ps1` script.
+## ⚡ Quick Start
 
 ```powershell
-./scripts/send-teams-message.ps1 -tenantId "<Tenant-ID>" -clientId "<Client-ID>" -clientSecret "<Client-Secret>" -channelId "<Channel-ID>" -message "Hello, Teams!"
+# Install Teams module
+Install-Module MicrosoftTeams
+Import-Module MicrosoftTeams
+
+# Connect to Teams
+Connect-MicrosoftTeams
+
+# Load toolkit
+. .\TeamsAutomation.ps1
+
+# Run first automation
+New-BulkTeams -Template "ProjectTeam" -Count 10
 ```
 
-### Other Scripts
+## 🛠️ Included Scripts
 
-- **Add-TeamsUser.ps1**: Script to add a user to a Microsoft Teams team.
-- **Remove-TeamsUser.ps1**: Script to remove a user from a Microsoft Teams team.
-- **List-TeamsChannels.ps1**: Script to list all channels in a Microsoft Teams team.
-- **Create-TeamsChannel.ps1**: Script to create a new channel in a Microsoft Teams team.
-- **Delete-TeamsChannel.ps1**: Script to delete a channel in a Microsoft Teams team.
-- **Update-TeamsChannel.ps1**: Script to update a channel in a Microsoft Teams team.
-- **List-TeamsMembers.ps1**: Script to list all members in a Microsoft Teams team.
-- **Create-TeamsMeeting.ps1**: Script to create a new meeting in a Microsoft Teams team.
-- **Delete-TeamsMeeting.ps1**: Script to delete a meeting in a Microsoft Teams team.
-- **List-TeamsMeetings.ps1**: Script to list all meetings in a Microsoft Teams team.
+### Provisioning
+- `New-BulkTeams.ps1` - Create multiple teams
+- `Import-TeamsFromCSV.ps1` - CSV-based provisioning
+- `New-DepartmentTeam.ps1` - Department-specific teams
+- `Clone-TeamTemplate.ps1` - Duplicate team structures
+- `New-ClassTeams.ps1` - Education class teams
 
-## 💵 Pricing & Licensing
+### User Management
+- `Add-BulkMembers.ps1` - Add users to teams
+- `Sync-ADGroups.ps1` - Sync with Active Directory
+- `Set-UserPolicies.ps1` - Apply policies in bulk
+- `Remove-InactiveUsers.ps1` - Clean up inactive members
+- `Export-TeamMembers.ps1` - Membership reports
 
-### Free Version
-- Basic PowerShell scripts
-- Community support
-- Core automation features
-- Perfect for testing
+### Governance
+- `Get-TeamsActivity.ps1` - Activity reports
+- `Find-OrphanedTeams.ps1` - Teams without owners
+- `Set-TeamExpiration.ps1` - Lifecycle management
+- `Audit-GuestAccess.ps1` - External user audit
+- `Enforce-NamingPolicy.ps1` - Naming conventions
 
-### Pro Version - $29 (One-time)
-**Everything you need for Teams automation:**
-- ✅ **50+ PowerShell scripts** (all current and future)
-- ✅ **Advanced automation templates**
-- ✅ **Setup guide & video tutorials**
-- ✅ **90-day email support**
-- ✅ **Priority feature requests**
-- ✅ **Bulk operations scripts**
-- ✅ **Security best practices guide**
-- ✅ **Updates for 1 year**
+### Maintenance
+- `Archive-OldTeams.ps1` - Archive inactive teams
+- `Clean-DeletedTeams.ps1` - Purge soft-deleted teams
+- `Update-TeamSettings.ps1` - Bulk settings updates
+- `Backup-TeamConfig.ps1` - Configuration backup
+- `Restore-Team.ps1` - Restore from backup
 
-**[🛒 Get Pro Version →](https://gumroad.com/l/teams-automation-pro)**
+## 📈 Features
 
-### Enterprise License - $149
-**For organizations and consultants:**
-- ✅ Everything in Pro
-- ✅ **Unlimited organization use**
-- ✅ **Priority support (24hr response)**
-- ✅ **Custom script development** (2 hours included)
-- ✅ **Implementation assistance**
-- ✅ **Architecture consultation**
-- ✅ **White-label rights**
+### Template System
+```powershell
+# Define team template
+$template = @{
+    Channels = @("General", "Planning", "Development")
+    Apps = @("Planner", "OneNote", "GitHub")
+    Settings = @{
+        AllowGuestAccess = $false
+        AllowMemberAddRemove = $true
+    }
+}
 
-**[🏢 Get Enterprise →](https://gumroad.com/l/teams-automation-enterprise)**
+# Apply template
+New-TeamFromTemplate -Template $template -Name "New Project"
+```
 
-### Why Pay?
-- **Save 20+ hours/week** on Teams management
-- **Reduce errors** with tested automation
-- **Scale operations** without adding staff
-- **Professional support** when you need it
-- **ROI in days**, not months
+### Policy Management
+```powershell
+# Create custom policy
+New-CsTeamsMessagingPolicy -Identity "RestrictedChat" `
+    -AllowUserChat $false `
+    -AllowGiphy $false
 
-## Contributing
+# Apply to users
+Grant-PolicyToGroup -Group "Interns" -Policy "RestrictedChat"
+```
 
-We welcome contributions to improve and expand this collection of scripts. Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+### Reporting
+```powershell
+# Generate usage report
+Get-TeamsUsageReport -Days 30 |
+    Export-Excel -Path "TeamsUsage.xlsx" -AutoSize
 
-## License
+# Compliance audit
+Get-TeamsComplianceReport |
+    Send-MailMessage -To "compliance@company.com"
+```
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## 🔧 Advanced Usage
+
+### Scheduled Tasks
+```powershell
+# Daily team cleanup
+Register-ScheduledTask -TaskName "TeamsCleanup" `
+    -Action (New-ScheduledTaskAction -Execute "PowerShell.exe" `
+        -Argument "-File C:\Scripts\Clean-Teams.ps1") `
+    -Trigger (New-ScheduledTaskTrigger -Daily -At 2am)
+```
+
+### Error Handling
+```powershell
+# Robust error handling
+try {
+    New-Team -DisplayName $name
+} catch {
+    Write-Log "Failed to create team: $_"
+    Send-Alert -Message "Team creation failed"
+}
+```
+
+## 📊 Bulk Operations
+
+Handle thousands of users/teams efficiently:
+
+```powershell
+# Parallel processing
+$teams | ForEach-Object -Parallel {
+    Set-TeamPicture -GroupId $_.GroupId -ImagePath "logo.png"
+} -ThrottleLimit 5
+
+# Batch processing
+Process-InBatches -Items $users -BatchSize 100 -ScriptBlock {
+    param($batch)
+    Add-TeamUser -GroupId $teamId -Users $batch
+}
+```
+
+## 🔒 Security
+
+- **RBAC Support** - Role-based access control
+- **Audit Logging** - Track all changes
+- **MFA Required** - Multi-factor authentication
+- **Secure Storage** - Encrypted credentials
+- **Compliance Ready** - GDPR/HIPAA compliant
+
+## 🐛 Common Issues
+
+| Issue | Solution |
+|-------|----------|
+| Connection timeout | Use Connect-MicrosoftTeams -UseDeviceAuthentication |
+| Throttling | Implement delays between operations |
+| Permission denied | Check Teams admin role assignment |
+| Team not found | Ensure team is not archived |
+
+## 📚 Resources
+
+- [Script Documentation](docs/README.md)
+- [Teams PowerShell Reference](https://docs.microsoft.com/powershell/teams)
+- [Best Practices Guide](docs/best-practices.md)
+- [Troubleshooting Guide](docs/troubleshooting.md)
+
+## 🤝 Contributing
+
+Share your Teams automation scripts with the community!
+
+## 📜 License
+
+MIT License - Free for all use
+
+---
+
+<div align="center">
+
+**Automate Teams Management at Scale**
+
+[![Download](https://img.shields.io/badge/Download-Scripts-brightgreen?style=for-the-badge)](https://github.com/yourusername/teams-automation/releases)
+
+*Free • Open Source • Enterprise Ready*
+
+</div>
