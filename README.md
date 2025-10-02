@@ -2,8 +2,10 @@
 
 PowerShell scripts for automating Microsoft Teams administration tasks.
 
-[![PowerShell](https://img.shields.io/badge/PowerShell-7.0+-5391FE?style=flat-square&logo=powershell)](https://docs.microsoft.com/powershell/)
+[![PowerShell](https://img.shields.io/badge/PowerShell-7.0+-5391FE?style=flat-square&logo=powershell&logoColor=white)](https://docs.microsoft.com/powershell/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/wesellis/TECH-Microsoft-Teams-Automation-PowerShell-Enterprise-User-Management?style=flat-square)](https://github.com/wesellis/TECH-Microsoft-Teams-Automation-PowerShell-Enterprise-User-Management/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/wesellis/TECH-Microsoft-Teams-Automation-PowerShell-Enterprise-User-Management?style=flat-square)](https://github.com/wesellis/TECH-Microsoft-Teams-Automation-PowerShell-Enterprise-User-Management/commits)
 
 ## Overview
 
