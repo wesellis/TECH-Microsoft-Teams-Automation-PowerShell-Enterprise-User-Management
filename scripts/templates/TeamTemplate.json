@@ -1,0 +1,130 @@
+{
+  "templateVersion": "1.0",
+  "templates": {
+    "standard": {
+      "name": "Standard Team Template",
+      "description": "Default template for general teams",
+      "settings": {
+        "AllowGiphy": true,
+        "GiphyContentRating": "Moderate",
+        "AllowStickersAndMemes": true,
+        "AllowCustomMemes": true,
+        "AllowAddRemoveApps": true,
+        "AllowCreateUpdateChannels": true,
+        "AllowDeleteChannels": false,
+        "AllowUserEditMessages": true,
+        "AllowUserDeleteMessages": false
+      },
+      "channels": [
+        {
+          "name": "Announcements",
+          "description": "Team announcements and updates"
+        },
+        {
+          "name": "Resources",
+          "description": "Shared resources and documentation"
+        },
+        {
+          "name": "Discussion",
+          "description": "General team discussions"
+        }
+      ]
+    },
+    "project": {
+      "name": "Project Team Template",
+      "description": "Template for project-based teams",
+      "settings": {
+        "AllowGiphy": false,
+        "GiphyContentRating": "Strict",
+        "AllowStickersAndMemes": false,
+        "AllowCustomMemes": false,
+        "AllowAddRemoveApps": true,
+        "AllowCreateUpdateChannels": true,
+        "AllowDeleteChannels": false,
+        "AllowUserEditMessages": true,
+        "AllowUserDeleteMessages": false
+      },
+      "channels": [
+        {
+          "name": "Planning",
+          "description": "Project planning and roadmap"
+        },
+        {
+          "name": "Development",
+          "description": "Development discussions"
+        },
+        {
+          "name": "Testing",
+          "description": "QA and testing"
+        },
+        {
+          "name": "Documentation",
+          "description": "Project documentation"
+        }
+      ]
+    },
+    "executive": {
+      "name": "Executive Team Template",
+      "description": "Template for leadership and executive teams",
+      "settings": {
+        "AllowGiphy": false,
+        "GiphyContentRating": "Strict",
+        "AllowStickersAndMemes": false,
+        "AllowCustomMemes": false,
+        "AllowAddRemoveApps": false,
+        "AllowCreateUpdateChannels": false,
+        "AllowDeleteChannels": false,
+        "AllowUserEditMessages": false,
+        "AllowUserDeleteMessages": false
+      },
+      "channels": [
+        {
+          "name": "Strategic Planning",
+          "description": "Strategic initiatives and planning"
+        },
+        {
+          "name": "Reports",
+          "description": "Executive reports and metrics"
+        },
+        {
+          "name": "Confidential",
+          "description": "Confidential discussions",
+          "membershipType": "Private"
+        }
+      ]
+    },
+    "education": {
+      "name": "Education/Class Template",
+      "description": "Template for educational teams and classes",
+      "settings": {
+        "AllowGiphy": false,
+        "GiphyContentRating": "Strict",
+        "AllowStickersAndMemes": false,
+        "AllowCustomMemes": false,
+        "AllowAddRemoveApps": true,
+        "AllowCreateUpdateChannels": false,
+        "AllowDeleteChannels": false,
+        "AllowUserEditMessages": true,
+        "AllowUserDeleteMessages": false
+      },
+      "channels": [
+        {
+          "name": "Announcements",
+          "description": "Class announcements"
+        },
+        {
+          "name": "Assignments",
+          "description": "Homework and assignments"
+        },
+        {
+          "name": "Resources",
+          "description": "Course materials"
+        },
+        {
+          "name": "Office Hours",
+          "description": "Virtual office hours and Q&A"
+        }
+      ]
+    }
+  }
+}
